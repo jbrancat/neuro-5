@@ -15,7 +15,8 @@ Simulation::Simulation( unsigned int const number_neurons,
 						double const gamma, double const epsilon,
 						double const& external_factor,
 						unsigned random_seed,
-						Physics::Time spike_interval)
+						Physics::Time spike_interval,
+						unsigned int relative_strength)
 						
 						: network_(type, number_neurons, 
 							add_external_current, neuron_csv_files, 
@@ -23,7 +24,7 @@ Simulation::Simulation( unsigned int const number_neurons,
 							random_seed, firing_threshold, 
 							refractory_period, resting_potential, 
 							reset_potential, transmission_delay, 
-							tau, time_of_simulation, spike_interval),
+							tau, time_of_simulation, spike_interval, relative_strength),
 						time_of_simulation_(time_of_simulation),
 						time_step_(time_step)
 {}
@@ -43,7 +44,8 @@ Simulation::Simulation( unsigned int const number_neurons,
                         double const epsilon,
                         double const& external_factor,
                         unsigned random_seed,
-                        Physics::Time spike_interval )
+                        Physics::Time spike_interval,
+                        unsigned int relative_strength )
 
 		: Simulation(   number_neurons,
 						time_of_simulation,  
@@ -61,7 +63,8 @@ Simulation::Simulation( unsigned int const number_neurons,
 						epsilon,
 						external_factor,
                         random_seed,
-						spike_interval)
+						spike_interval,
+						relative_strength)
 {}
 
 

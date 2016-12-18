@@ -17,7 +17,7 @@ Neuron::Neuron(SimulationType const& a_type, bool const& exc,
                bool const& add_external_current, Physics::Potential firing_threshold, Physics::Time time_of_simulation,
 			   Physics::Time refractory_period, Physics::Potential resting_potential, Physics::Potential reset_potential, 
                Physics::Time transmission_delay, Physics::Time tau, double const& external_factor, unsigned random_seed,
-               bool outputCsvFile, int neuron_id)
+               bool outputCsvFile, int neuron_id, unsigned int relative_strength)
                 : neuron_id_(neuron_id),
 				  type_(a_type), 
 				  outputCsvFile_(outputCsvFile),
@@ -30,7 +30,8 @@ Neuron::Neuron(SimulationType const& a_type, bool const& exc,
                   resting_potential_(resting_potential),
                   reset_potential_(reset_potential), 
                   transmission_delay_(transmission_delay),
-                  tau_(tau)
+                  tau_(tau),
+                  relative_strength_(relative_strength)
                  
 
                   
@@ -40,8 +41,12 @@ Neuron::Neuron(SimulationType const& a_type, bool const& exc,
     //see add_event_in() function (discards spikes during refraction)
     last_spike_time_ = -Neuron::refractory_period_;
 
-     //if (exc) J_=WEIGHT_EXC; else J_=WEIGHT_INH;
-    J_ = exc ? WEIGHT_J_EXC : WEIGHT_J_INH;
+    
+    if(exc)
+    J_ = WEIGHT_J_EXC;
+    else
+    J_= - relative_strength_ * WEIGHT_J_EXC;
+    
 
     if (add_external_current)
     {

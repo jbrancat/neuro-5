@@ -228,5 +228,6 @@ private:
     bool add_external_current;
     unsigned int simulation_type;
     Physics::Time spike_interval;
+    unsigned int relative_strength;
 };
 

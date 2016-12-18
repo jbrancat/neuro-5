@@ -36,6 +36,7 @@ public:
     /// @param external_factor external factor
     /// @param random_seed seed for the random generators
     /// @param spike_interval spike counting time interval for output files
+    /// @param relative_strength relative strength of inhibitory synapses (g = Ji/Je)
     ///
     Simulation( unsigned int const number_neurons,
                 Physics::Time const& time_of_simulation,
@@ -53,7 +54,8 @@ public:
                 double const epsilon = EPSILON,
                 double const& external_factor = EXTERNAL_FACTOR,
                 unsigned random_seed = RANDOM_SEED,
-                Physics::Time spike_interval = SPIKE_INTERVAL );
+                Physics::Time spike_interval = SPIKE_INTERVAL,
+                unsigned int relative_strength = RELATIVE_STRENGTH);
 
     ///
     /// Constructor
@@ -75,6 +77,7 @@ public:
     /// @param external_factor external factor
     /// @param random_seed seed for the random generators
     /// @param spike_interval spike counting time interval for output files
+    /// @param relative_strength relative strength of inhibitory synapses (g = Ji/Je)
     ///
     Simulation( unsigned int const number_neurons,
                 Physics::Time const& time_of_simulation,
@@ -90,7 +93,8 @@ public:
                 double const epsilon = EPSILON,
                 double const& external_factor = EXTERNAL_FACTOR,
                 unsigned random_seed = RANDOM_SEED,
-                Physics::Time spike_interval = SPIKE_INTERVAL );
+                Physics::Time spike_interval = SPIKE_INTERVAL,
+                unsigned int relative_strength = RELATIVE_STRENGTH);
 
     ///
     /// @brief Destructor

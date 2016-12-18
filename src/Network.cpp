@@ -25,7 +25,8 @@ Network::Network(   SimulationType const& type,
 					Physics::Time transmission_delay, 
 					Physics::Time tau,
 					Physics::Time time_of_simulation,
-					Physics::Time spike_interval ) 
+					Physics::Time spike_interval,
+					unsigned int relative_strength ) 
 					
 	: N_(number_neurons),
 	  Ne_(std::round(N_ / (1 + gamma))),
@@ -35,6 +36,7 @@ Network::Network(   SimulationType const& type,
       type_(type),
       time_of_simulation_(time_of_simulation),
       spike_interval_(spike_interval)
+      
 {
     assert(spike_interval>0);
 
@@ -48,7 +50,7 @@ Network::Network(   SimulationType const& type,
                                 firing_threshold, time_of_simulation,
                                 refractory_period, resting_potential,
                                 reset_potential, transmission_delay,
-                                tau,  external_factor, random_seed, output, i);
+                                tau,  external_factor, random_seed, output, i, relative_strength);
     }
 
     std::cout << "Creating " << epsilon_*100 << " network connectivity (random seed " << random_seed << ")..." << std::endl;

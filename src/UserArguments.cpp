@@ -77,6 +77,9 @@ void UserArguments::parse(int argc, char** argv)
         const std::string spike_interval_msg("spike counting time interval (unit: ms, validity range: must be between 0 and the total simulation time, default value: " + std::to_string(SPIKE_INTERVAL) + " ms)");
         TCLAP::ValueArg<Physics::Time> spike_interval_arg("s", "spike", spike_interval_msg, false, SPIKE_INTERVAL, "Physics::Time", cmd);
         
+        const std::string relative_strength_msg("relative strength of inhibitory synapses (no unit, validity range: must be bigger than 0)");
+        TCLAP::ValueArg<unsigned int> relative_strength_arg("G", "relative_strength", relative_strength_msg, false, RELATIVE_STRENGTH, "unsigned int", cmd);
+        
         cmd.parse(argc, argv);
 
         time_of_simulation = time_of_simulation_arg.getValue();
@@ -96,6 +99,7 @@ void UserArguments::parse(int argc, char** argv)
         output_neuron_ids = output_neuron_ids_arg.getValue();
         simulation_type = simulation_type_arg.getValue();
         spike_interval = spike_interval_arg.getValue();
+        relative_strength = relative_strength_arg.getValue();
 
         check_arguments_validity();
 
@@ -271,6 +275,10 @@ void UserArguments::check_arguments_validity()
         if (not(neuron_id <= number_neurons -1))
             throw std::runtime_error("neuron id for output file not valid; use --help for help");
     }
+    
+     // relative_strength is in ]0, max-Physics::Time]
+    if (not(0 < relative_strength && relative_strength <= time_max))
+        throw std::runtime_error("relative strength of inhibitory synapses not valid; use --help for help");
 
     // spike_interval is in (0, time_of_simulation]
     if (not(0 < spike_interval && spike_interval <= time_of_simulation))
@@ -297,6 +305,7 @@ void UserArguments::print_info()
     std::cout << "- spiking rate interval for output: " << spike_interval << " ms" << std::endl;
     //TODO this simulation_type is only correctly printed when calling the 'simulator', not the 'simulator_*' apps
     std::cout << "- simulation type: " << simulation_type << std::endl;
+    std::cout << "- relative_strength: " << relative_strength << std::endl;
 }
 
 void UserArguments::print_warning_no_output_neuron_ids()
