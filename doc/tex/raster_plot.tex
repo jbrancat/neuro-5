@@ -49,7 +49,9 @@
 %\addplot+[only marks,mark size=1, each nth point=1] table [x=t, y=neuron, col sep=comma] {../csv/raster_plot_explicit_50_neurons.csv};
 %\addplot+[only marks,mark size=1, each nth point=1] table [x=t, y=neuron, col sep=comma] {../csv/raster_plot_implicit_50_neurons.csv};
 %\addplot+[only marks,mark size=1, each nth point=1] table [x=t, y=neuron, col sep=comma] {../csv/raster_plot_analytic_fixed_step_50_neurons.csv};
-\addplot+[only marks,mark size=1, each nth point=1] table [x=t, y=neuron, col sep=comma] {../csv/raster_plot_analytic_variable_step_50_neurons.csv};
+%\addplot+[only marks,mark size=1, each nth point=1] table [x=t, y=neuron, col sep=comma] {../csv/raster_plot_analytic_variable_step_50_neurons.csv};
+
+\addplot+[only marks,mark size=0.5, each nth point=1] table [x=t, y=neuron, col sep=comma] {../csv/raster_plot_G5_f2.csv};
 
 % this will use something on current folder:
 %\addplot+[only marks,mark size=0.2, each nth point=2] table [x=t, y=neuron, col sep=comma] {./raster_plot.csv};
@@ -70,7 +72,9 @@
 %%% the following 4 relate to the spiking rate plots of the Brunel model
 %\addplot+[dirac] table [x=t, y=spikes, col sep=comma, each nth point=1] {../csv/spiking_rate_explicit.csv};
 %\addplot+[dirac] table [x=t, y=spikes, col sep=comma, each nth point=1] {../csv/spiking_rate_implicit.csv};
-\addplot+[dirac] table [x=t, y=spikes, col sep=comma, each nth point=1] {../csv/spiking_rate_analytic_fixed_step.csv};
+%\addplot+[dirac] table [x=t, y=spikes, col sep=comma, each nth point=1] {../csv/spiking_rate_analytic_fixed_step.csv};
+
+\addplot+[dirac] table [x=t, y=spikes, col sep=comma, each nth point=1] {../csv/spiking_rate_G5_f2.csv};
 
 %% here we use the current folder as input 
 %\addplot+table [x=t, y=spikes, col sep=comma, each nth point=10] {./spiking_rate.csv};
