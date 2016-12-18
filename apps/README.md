@@ -6,7 +6,7 @@ Applications
 
 ## Classes Structure
 
-![alt text](../doc/diagram/diagram_apps.pdf "Diagram of applications")
+![alt text](../doc/diagram/diagram_apps.png "Diagram of applications")
 
 ##The three population of the Network
 
