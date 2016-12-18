@@ -22,14 +22,14 @@ To execute the default application, run
 in neuro-5/build/apps
 
 
-To change the type of simulation, type
+To change the type of simulation, enter
 
 	./simulator -m 0 	for AnalyticFixedStep
 				   1 	for Explicit
 				   2 	for Implicit
 				   3 	for AnalyticVariableStep
 	
-For help and parameters, type
+For help and parameters, enter
 
     ./simulator --help
     
