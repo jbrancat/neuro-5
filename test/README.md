@@ -40,10 +40,13 @@ TestDecayNeuronVoltage: Test if the decay of the membrane's potential is properl
 
 TestRefractoryPeriod: Test if after it as fired, a neuron stays at the resting potential during the refractory period 
 
-TestVoltageFiringReset: Test if a neuron receiving a stepwise increasing current has a stepwise increasing frequency of spikes
-
 TestSingleNeuronSimulation: Test if a simulation with one neuron receiving regular constant excitatory inputs runs successfully
 
+TestVoltageFiringReset: Test if a neuron receiving a stepwise increasing current has a stepwise increasing frequency of spikes
+
+### A current clamp experiment with ascending current injections over time, showing increasing frequency of spiking interval:
+
+![alt text](../doc/png/FiringVoltageReset.png "a current clamp experiment with ascending current injections over time, showing increasing frequency of spiking interval")
 
 
 
