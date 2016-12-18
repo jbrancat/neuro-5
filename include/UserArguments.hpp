@@ -179,6 +179,13 @@ public:
     /// @return list of neurons id for output
     ///
     std::vector<unsigned int> * get_output_neuron_ids();
+    
+    ///
+    /// @brief Get the relative strength g of inhibitory synapses argument
+    ///
+    /// @return the value of the relative strength g
+    ///
+    double get_relative_strength();
 
 private:
     ///
@@ -228,6 +235,6 @@ private:
     bool add_external_current;
     unsigned int simulation_type;
     Physics::Time spike_interval;
-    unsigned int relative_strength;
+    double relative_strength;
 };
 

@@ -78,7 +78,7 @@ void UserArguments::parse(int argc, char** argv)
         TCLAP::ValueArg<Physics::Time> spike_interval_arg("s", "spike", spike_interval_msg, false, SPIKE_INTERVAL, "Physics::Time", cmd);
         
         const std::string relative_strength_msg("relative strength of inhibitory synapses (no unit, validity range: must be bigger than 0)");
-        TCLAP::ValueArg<unsigned int> relative_strength_arg("G", "relative_strength", relative_strength_msg, false, RELATIVE_STRENGTH, "unsigned int", cmd);
+        TCLAP::ValueArg<double> relative_strength_arg("G", "relative_strength", relative_strength_msg, false, RELATIVE_STRENGTH, "unsigned int", cmd);
         
         cmd.parse(argc, argv);
 
@@ -205,6 +205,11 @@ Physics::Time UserArguments::get_spike_interval()
 	return spike_interval;
 }
 
+double UserArguments::get_relative_strength()
+{
+	return relative_strength;
+}
+
 void UserArguments::check_arguments_validity()
 {
     Physics::Time time_max (std::numeric_limits<Physics::Time>::max());
@@ -277,10 +282,10 @@ void UserArguments::check_arguments_validity()
     }
     
      // relative_strength is in ]0, max-Physics::Time]
-    if (not(0 < relative_strength && relative_strength <= time_max))
+    if (not(0 < relative_strength && relative_strength <= double_max))
         throw std::runtime_error("relative strength of inhibitory synapses not valid; use --help for help");
 
-    // spike_interval is in (0, time_of_simulation]
+    // spike_interval is in ]0, time_of_simulation]
     if (not(0 < spike_interval && spike_interval <= time_of_simulation))
         throw std::runtime_error("spike interval not valid; use --help for help");
 }

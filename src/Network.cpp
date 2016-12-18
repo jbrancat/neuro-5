@@ -26,7 +26,7 @@ Network::Network(   SimulationType const& type,
 					Physics::Time tau,
 					Physics::Time time_of_simulation,
 					Physics::Time spike_interval,
-					unsigned int relative_strength ) 
+					double relative_strength ) 
 					
 	: N_(number_neurons),
 	  Ne_(std::round(N_ / (1 + gamma))),

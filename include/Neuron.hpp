@@ -30,7 +30,7 @@ public:
            unsigned random_seed = RANDOM_SEED,
            bool outputCsvFile_ = false,
            int neuron_id_ = 0,
-           unsigned int relative_strength_ = RELATIVE_STRENGTH);
+           double relative_strength_ = RELATIVE_STRENGTH);
 
     ///
     /// @brief Destructor
@@ -87,7 +87,7 @@ private:
     const Physics::Potential reset_potential_; ///< reset potential after the neuron has fired)
     const Physics::Time transmission_delay_; ///<D (time taken by a signal after it's been produced to reach the receiving neuron)
     const Physics::Time tau_; ///<Time constaint (tau)
-    const unsigned int relative_strength_;
+    const double relative_strength_;
 };
 
 #endif // NEURON_H

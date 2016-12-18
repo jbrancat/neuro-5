@@ -17,7 +17,7 @@ Neuron::Neuron(SimulationType const& a_type, bool const& exc,
                bool const& add_external_current, Physics::Potential firing_threshold, Physics::Time time_of_simulation,
 			   Physics::Time refractory_period, Physics::Potential resting_potential, Physics::Potential reset_potential, 
                Physics::Time transmission_delay, Physics::Time tau, double const& external_factor, unsigned random_seed,
-               bool outputCsvFile, int neuron_id, unsigned int relative_strength)
+               bool outputCsvFile, int neuron_id, double relative_strength)
                 : neuron_id_(neuron_id),
 				  type_(a_type), 
 				  outputCsvFile_(outputCsvFile),

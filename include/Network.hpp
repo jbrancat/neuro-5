@@ -70,7 +70,7 @@ public:
             Physics::Time tau = TAU,
             Physics::Time time_of_simulation = SIMULATION_TIME,
             Physics::Time spike_interval = SPIKE_INTERVAL,
-            unsigned int relative_strength = RELATIVE_STRENGTH );
+            double relative_strength = RELATIVE_STRENGTH );
             
     Network(Network const &) = delete;
     Network& operator=(Network const &) = delete;

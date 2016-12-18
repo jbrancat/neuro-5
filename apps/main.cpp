@@ -54,7 +54,8 @@ int main (int argc, char** argv)
                 user_arguments.get_epsilon(),
                 user_arguments.get_external_factor(),
                 user_arguments.get_random_seed(),
-                user_arguments.get_spike_interval()
+                user_arguments.get_spike_interval(),
+                user_arguments.get_relative_strength()
                 );
         simulation.launch_simulation();
     }
@@ -74,7 +75,8 @@ int main (int argc, char** argv)
                 user_arguments.get_epsilon(),
                 user_arguments.get_external_factor(),
                 user_arguments.get_random_seed(),
-                user_arguments.get_spike_interval()
+                user_arguments.get_spike_interval(),
+                user_arguments.get_relative_strength()
                 );
         simulation.launch_simulation();
     }

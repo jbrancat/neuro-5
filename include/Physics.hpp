@@ -18,7 +18,7 @@
 #define SIMULATION_TIME 1000 //ms
 #define TIME_STEP 0.1 //ms
 #define SPIKE_INTERVAL 1 //ms
-#define RELATIVE_STRENGTH 5 //no unit
+#define RELATIVE_STRENGTH 5.0 //no unit
 
 enum class SimulationType : short
 {
